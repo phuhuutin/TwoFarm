@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class SkeletonView : MonoBehaviour
 {
     public Animator SkeletonAnimator;
     public Transform SkeletonTransform { get; set; }
+
+     public Boolean isDebug; 
 
     public void Initialize()
     {
@@ -39,4 +42,6 @@ public class SkeletonView : MonoBehaviour
         if (other == null) return;
         Debug.Log("HIT From Skeleton");
     }
+
+
 }

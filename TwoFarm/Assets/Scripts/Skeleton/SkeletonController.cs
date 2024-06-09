@@ -2,6 +2,7 @@ using MEC;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SkeletonController
 {
@@ -42,6 +43,11 @@ public class SkeletonController
         }
 
         HandleMovementAndAnimation();
+
+        //this debug is enable/disable in prefab.
+        // if(_view.isDebug){
+        //     OnDrawGizmos();
+        // }
     }
 
     private void MoveTowardsPlayer()
@@ -85,5 +91,15 @@ public class SkeletonController
     {
         yield return Timing.WaitForSeconds(0.5f); // Adjust based on your attack animation length
         _model.Status = SkeletonAnimationType.Walk;
+    }
+
+    public void OnDebug (){
+        //Character Detection Circle.
+        if(_view != null && _model != null ){
+            Gizmos.color = Color.red;
+            // Draw the detection radius as a wire sphere
+            Gizmos.DrawWireSphere(_view.transform.position, _model.DetectionRadius);
+        }
+
     }
 }
