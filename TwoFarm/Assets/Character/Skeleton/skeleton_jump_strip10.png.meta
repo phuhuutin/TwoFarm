@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2b4175a093b0f44d8947a87343d4607
+guid: 1e901fc007a5e4b49ae128205cd4ca66
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_0
+      name: skeleton_jump_strip10_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f3ea2c1182911499ed977f17a732d0
-      internalID: 728118401
+      spriteID: 43d7abb4e9e89c44a8106b3d9891522a
+      internalID: -213675375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_1
+      name: skeleton_jump_strip10_1
       rect:
         serializedVersion: 2
         x: 96
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55fa78061270584bb842924468c244d
-      internalID: 814584103
+      spriteID: 37c8c6675aafd5140a25d9539d291140
+      internalID: 50072891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_2
+      name: skeleton_jump_strip10_2
       rect:
         serializedVersion: 2
         x: 192
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f954769e5ee9eaf4d94bce7a1e0b0a24
-      internalID: 1488845926
+      spriteID: 8499304145fcc5441b5d30b723b29ef4
+      internalID: 1319516907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_3
+      name: skeleton_jump_strip10_3
       rect:
         serializedVersion: 2
         x: 288
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8f4badc8e287c4e99624094cd87dc0
-      internalID: -153121706
+      spriteID: a8041cda4cdbdf04d9a0f103ceaee728
+      internalID: 649707803
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_4
+      name: skeleton_jump_strip10_4
       rect:
         serializedVersion: 2
         x: 384
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54de8de83a3bdd841b534ca06e1c5b02
-      internalID: 86892393
+      spriteID: d1ef7456c88d31f408d4dca33dbcc278
+      internalID: -490787730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_5
+      name: skeleton_jump_strip10_5
       rect:
         serializedVersion: 2
         x: 480
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb0e7de3c3e59446983837e6f530a44
-      internalID: -390908206
+      spriteID: 13e27b5e46b77ef46947cdbc1722ad59
+      internalID: -2035157946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_6
+      name: skeleton_jump_strip10_6
       rect:
         serializedVersion: 2
         x: 576
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b00b5db11c69cd4b9419c8bfa5f8d6c
-      internalID: 2052429438
+      spriteID: 5e0cc58a98b83444ab0a921e5876588b
+      internalID: -52302321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_7
+      name: skeleton_jump_strip10_7
       rect:
         serializedVersion: 2
         x: 672
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6d6a21d7b9ae7c478cca583c1f9f775
-      internalID: -353983554
+      spriteID: 5cf1d5eb8f744754ca9a3dae42510efb
+      internalID: 324192721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_8
+      name: skeleton_jump_strip10_8
       rect:
         serializedVersion: 2
         x: 768
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e9dc9961d908d4583a62f7900b5396
-      internalID: -1716049359
+      spriteID: fe931f05f98ed5848a9a2099768a0f11
+      internalID: 2084981555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_9
+      name: skeleton_jump_strip10_9
       rect:
         serializedVersion: 2
         x: 864
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db46f15098ebef4ca853d2d87606294
-      internalID: 1309631940
+      spriteID: 6912a53da60bcd140aaf3ad5a4df324f
+      internalID: 1778983358
       vertices: []
       indices: 
       edges: []
@@ -330,16 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bowlhair_attack_strip10_0: 728118401
-      bowlhair_attack_strip10_1: 814584103
-      bowlhair_attack_strip10_2: 1488845926
-      bowlhair_attack_strip10_3: -153121706
-      bowlhair_attack_strip10_4: 86892393
-      bowlhair_attack_strip10_5: -390908206
-      bowlhair_attack_strip10_6: 2052429438
-      bowlhair_attack_strip10_7: -353983554
-      bowlhair_attack_strip10_8: -1716049359
-      bowlhair_attack_strip10_9: 1309631940
+      skeleton_jump_strip10_0: -213675375
+      skeleton_jump_strip10_1: 50072891
+      skeleton_jump_strip10_2: 1319516907
+      skeleton_jump_strip10_3: 649707803
+      skeleton_jump_strip10_4: -490787730
+      skeleton_jump_strip10_5: -2035157946
+      skeleton_jump_strip10_6: -52302321
+      skeleton_jump_strip10_7: 324192721
+      skeleton_jump_strip10_8: 2084981555
+      skeleton_jump_strip10_9: 1778983358
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

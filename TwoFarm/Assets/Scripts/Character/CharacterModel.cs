@@ -5,7 +5,10 @@ using UnityEngine;
 public class CharacterModel
 {
     public float MoveSpeed { get; set; } = 5.0f;
-    public float RollSpeed { get; set; } = 10.0f; 
+    public float RollSpeed { get; set; } = 10.0f;
+
+    public AnimationType status { get; set; } = AnimationType.Idle;
+
 
     public bool IsRunning { get; set; } = false;
     public Vector2 MovementDirection { get; set; } = Vector2.zero;
@@ -14,7 +17,7 @@ public class CharacterModel
 
     public void SetSpeed()
     {
-        MoveSpeed = IsRunning ? 5.0f : 3.0f; 
+        MoveSpeed = status == AnimationType.Run ? 7.0f : 5.0f; 
     }
 
 }

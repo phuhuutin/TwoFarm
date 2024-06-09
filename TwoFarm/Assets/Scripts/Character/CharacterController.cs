@@ -1,94 +1,111 @@
 using System.Collections;
 using System.Collections.Generic;
-using MVC_EXAMPLE;
 using UnityEngine;
 using MEC;
 
-public class Controller
+public class CharacterController
 {
-    private CharacterModel _model;
-    private CharacterView _view;
-    private bool _facingRight = true;
+    private CharacterModel model;
+    private CharacterView view;
+    private bool facingRight = true;
 
     public void SetData(CharacterModel model, CharacterView view)
     {
         // Initialize Data Model, View
-        this._model = model;
-        this._view = view;
+        this.model = model;
+        this.view = view;
     }
     
     public void Handle()
     {
+        // Handle running input
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            _model.IsRunning = !_model.IsRunning;
-            _model.SetSpeed();
+            model.status = model.status == AnimationType.Run ? AnimationType.Walk : AnimationType.Run;
+            model.SetSpeed();
         }
-            // Handle movement input
+
+
+        // Handle movement input
         float moveX = Input.GetAxisRaw("Horizontal"); // ASDW and arrow keys
         float moveY = Input.GetAxisRaw("Vertical");   // ASDW and arrow keys
 
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
-        _model.MovementDirection = moveDirection;
+        model.MovementDirection = moveDirection;
         
         // Handle character facing direction
-        if (moveX > 0 && !_facingRight)
+        if (moveX > 0 && !facingRight)
         {
-            _facingRight = true;
-            _view.FlipCharacter(_facingRight);
+            facingRight = true;
+            view.FlipCharacter(facingRight);
         }
-        else if (moveX < 0 && _facingRight)
+        else if (moveX < 0 && facingRight)
         {
-            _facingRight = false;
-            _view.FlipCharacter(_facingRight);
+            facingRight = false;
+            view.FlipCharacter(facingRight);
         }
 
         // Handle roll skill
-        if (Input.GetKeyDown(KeyCode.Space) && !_model.IsRolling)
+        if (Input.GetKeyDown(KeyCode.Space) && model.status != AnimationType.Roll && model.status != AnimationType.Fight)
         {
-            // Move the character
-            _model.IsRolling = true;
-            _view.PlayAnimation(AnimationType.Roll);
-            _view.SetPosition(moveDirection * _model.MoveSpeed * 2 * Time.deltaTime);
-            
-            Timing.RunCoroutine(RollCooldown()); // Package Library Support Coroutine when without Monobehavior (MEC on unity asset Store)
-            
+            var tempStatus = model.status;
+            model.status = AnimationType.Roll;
+            view.PlayAnimation(AnimationType.Roll);
+            Timing.RunCoroutine(RollCooldown(tempStatus == AnimationType.Run));
         }
 
+        // Handle fight animation
+        if (Input.GetMouseButtonDown(0) && model.status != AnimationType.Fight && model.status != AnimationType.Roll)
+        {
+            var tempStatus = model.status;
 
-        if (_model.IsRolling)
-        {
-            // Move the character with roll speed
-            _view.SetPosition(moveDirection * _model.RollSpeed * Time.deltaTime);
+            model.status = AnimationType.Fight;
+            view.PlayAnimation(AnimationType.Fight);
+            Timing.RunCoroutine(FightCooldown(tempStatus == AnimationType.Run));
         }
-        else
+
+        // Handle character movement and animations based on status
+        switch (model.status)
         {
-            // Move the character
-            _view.SetPosition(moveDirection * _model.MoveSpeed * Time.deltaTime);
-            // Handle animations
-            if (moveDirection != Vector2.zero)
-            {
-                if (_model.IsRunning)
+            case AnimationType.Roll:
+                // Move the character with roll speed
+                view.SetPosition(moveDirection * model.RollSpeed * Time.deltaTime);
+                break;
+
+            case AnimationType.Fight:
+                // No movement during fight animation
+                break;
+
+            default:
+                // Move the character normally
+                view.SetPosition(moveDirection * model.MoveSpeed * Time.deltaTime);
+                if (moveDirection != Vector2.zero)
                 {
-                    _view.PlayAnimation(AnimationType.Run);
+                    view.PlayAnimation(model.status == AnimationType.Run ? AnimationType.Run : AnimationType.Walk);
                 }
                 else
                 {
-                    _view.PlayAnimation(AnimationType.Walk);
+                    view.PlayAnimation(AnimationType.Idle);
                 }
-            }
-            else
-            {
-                _view.PlayAnimation(AnimationType.Idle);
-            }
+                break;
         }
     }
 
-    private IEnumerator<float> RollCooldown()
+  
+
+    private IEnumerator<float> RollCooldown(bool isRunning)
     {
         // Duration of the roll animation
         yield return  Timing.WaitForSeconds(0.5f); // Adjust based on your animation length
-        _model.IsRolling = false;
+        
+        model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
+    }
+
+    private IEnumerator<float> FightCooldown(bool isRunning)
+    {
+        // Duration of the fight animation
+        yield return Timing.WaitForSeconds(0.5f); // Adjust based on your animation length
+        model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
     }
 
 }

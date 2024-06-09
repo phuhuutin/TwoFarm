@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using MVC_EXAMPLE;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterView : MonoBehaviour
@@ -12,17 +12,18 @@ public class CharacterView : MonoBehaviour
 
     public void Initialize()
     {
-        characterAnimator = this.gameObject.GetComponent<Animator>();
+        if (characterAnimator == null)
+            characterAnimator = this.gameObject.GetComponent<Animator>();
         // Initialize all animators
         if (hairAnimator == null || toolAnimator == null)
         {
             foreach (Transform child in transform)
             {
-                if (child.name == "CharactarHair")
+                if (child.name == "CharacterHair")
                 {
                     hairAnimator = child.GetComponent<Animator>();
                 }
-                else if (child.name == "CharactarTool")
+                else if (child.name == "CharacterTool")
                 {
                     toolAnimator = child.GetComponent<Animator>();
                 }
@@ -49,5 +50,11 @@ public class CharacterView : MonoBehaviour
     {
         // Activate the GameObject
         gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other == null) return;
+        Debug.Log("HIT");
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2b4175a093b0f44d8947a87343d4607
+guid: afbc4f3760d06a644be0d1bd3d77a836
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_0
+      name: skeleton_idle_strip6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f3ea2c1182911499ed977f17a732d0
-      internalID: 728118401
+      spriteID: 522f40427ffc7ce4f890161394ec6b7d
+      internalID: -1920742124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_1
+      name: skeleton_idle_strip6_1
       rect:
         serializedVersion: 2
         x: 96
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55fa78061270584bb842924468c244d
-      internalID: 814584103
+      spriteID: d7dced802b45633468dc875ad7aa9e8d
+      internalID: 679516840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_2
+      name: skeleton_idle_strip6_2
       rect:
         serializedVersion: 2
         x: 192
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f954769e5ee9eaf4d94bce7a1e0b0a24
-      internalID: 1488845926
+      spriteID: dd2c82d8283711e4495b414edfc99be1
+      internalID: 1748167570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_3
+      name: skeleton_idle_strip6_3
       rect:
         serializedVersion: 2
         x: 288
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8f4badc8e287c4e99624094cd87dc0
-      internalID: -153121706
+      spriteID: f9278ad6df4a0194c9b2d57cc5b39cdc
+      internalID: 1480137694
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_4
+      name: skeleton_idle_strip6_4
       rect:
         serializedVersion: 2
         x: 384
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54de8de83a3bdd841b534ca06e1c5b02
-      internalID: 86892393
+      spriteID: 19a7c274709050a46836ef6539d0b159
+      internalID: -1032125929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_5
+      name: skeleton_idle_strip6_5
       rect:
         serializedVersion: 2
         x: 480
@@ -229,92 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb0e7de3c3e59446983837e6f530a44
-      internalID: -390908206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bowlhair_attack_strip10_6
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b00b5db11c69cd4b9419c8bfa5f8d6c
-      internalID: 2052429438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bowlhair_attack_strip10_7
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6d6a21d7b9ae7c478cca583c1f9f775
-      internalID: -353983554
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bowlhair_attack_strip10_8
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32e9dc9961d908d4583a62f7900b5396
-      internalID: -1716049359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bowlhair_attack_strip10_9
-      rect:
-        serializedVersion: 2
-        x: 864
-        y: 0
-        width: 96
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0db46f15098ebef4ca853d2d87606294
-      internalID: 1309631940
+      spriteID: 537a886606981c140ade5bdf0b60640d
+      internalID: -1972679639
       vertices: []
       indices: 
       edges: []
@@ -330,16 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bowlhair_attack_strip10_0: 728118401
-      bowlhair_attack_strip10_1: 814584103
-      bowlhair_attack_strip10_2: 1488845926
-      bowlhair_attack_strip10_3: -153121706
-      bowlhair_attack_strip10_4: 86892393
-      bowlhair_attack_strip10_5: -390908206
-      bowlhair_attack_strip10_6: 2052429438
-      bowlhair_attack_strip10_7: -353983554
-      bowlhair_attack_strip10_8: -1716049359
-      bowlhair_attack_strip10_9: 1309631940
+      skeleton_idle_strip6_0: -1920742124
+      skeleton_idle_strip6_1: 679516840
+      skeleton_idle_strip6_2: 1748167570
+      skeleton_idle_strip6_3: 1480137694
+      skeleton_idle_strip6_4: -1032125929
+      skeleton_idle_strip6_5: -1972679639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

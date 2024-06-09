@@ -8,12 +8,21 @@ public class GameManager : MonoBehaviour
     void Start()
     {
        PlayerManager.Instance.Initialize();
+
+        List<Vector3> spawnPositions = new List<Vector3>
+        {
+            new Vector3(20, 0, 0)
+        };
+
+        SkeletonManager.Instance.Initialize(spawnPositions); // Initialize skeletons at specified positions
     }
     
     // Update is called once per frame
     void Update()
     {
         PlayerManager.Instance.Handle();
-       // AudioManager.handle();
+        SkeletonManager.Instance.Handle();
+
+        // AudioManager.handle();
     }
 }

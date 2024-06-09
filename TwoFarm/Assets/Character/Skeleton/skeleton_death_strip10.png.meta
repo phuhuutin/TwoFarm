@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2b4175a093b0f44d8947a87343d4607
+guid: f59490d5881c45746b462be843cf9cf2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_0
+      name: skeleton_death_strip10_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f3ea2c1182911499ed977f17a732d0
-      internalID: 728118401
+      spriteID: a3ac56d95c17f2444aafbe9c3856296f
+      internalID: 1167605280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_1
+      name: skeleton_death_strip10_1
       rect:
         serializedVersion: 2
         x: 96
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55fa78061270584bb842924468c244d
-      internalID: 814584103
+      spriteID: 084f5167a2dbd8d40be4cbc6f464401f
+      internalID: 1915756965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_2
+      name: skeleton_death_strip10_2
       rect:
         serializedVersion: 2
         x: 192
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f954769e5ee9eaf4d94bce7a1e0b0a24
-      internalID: 1488845926
+      spriteID: 334e1228f74fb284492ce182c00f4420
+      internalID: -621249760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_3
+      name: skeleton_death_strip10_3
       rect:
         serializedVersion: 2
         x: 288
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8f4badc8e287c4e99624094cd87dc0
-      internalID: -153121706
+      spriteID: 01c6fb3cedf438349b54f020cfeba824
+      internalID: -336958785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_4
+      name: skeleton_death_strip10_4
       rect:
         serializedVersion: 2
         x: 384
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54de8de83a3bdd841b534ca06e1c5b02
-      internalID: 86892393
+      spriteID: afd1a4a8d13696d48b5a17702d94d9f6
+      internalID: -1288640691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_5
+      name: skeleton_death_strip10_5
       rect:
         serializedVersion: 2
         x: 480
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb0e7de3c3e59446983837e6f530a44
-      internalID: -390908206
+      spriteID: 592007d5f8274674389e30a458dbea5b
+      internalID: 1676546756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_6
+      name: skeleton_death_strip10_6
       rect:
         serializedVersion: 2
         x: 576
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b00b5db11c69cd4b9419c8bfa5f8d6c
-      internalID: 2052429438
+      spriteID: e64800bf2d5d71e4d995f1a6042d3e90
+      internalID: -1768242155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_7
+      name: skeleton_death_strip10_7
       rect:
         serializedVersion: 2
         x: 672
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6d6a21d7b9ae7c478cca583c1f9f775
-      internalID: -353983554
+      spriteID: 872a446f952280f48b0b241e5b0b7f87
+      internalID: 1032802244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_8
+      name: skeleton_death_strip10_8
       rect:
         serializedVersion: 2
         x: 768
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32e9dc9961d908d4583a62f7900b5396
-      internalID: -1716049359
+      spriteID: 99f5fa09f7a5c1340b5f9a81d03923fd
+      internalID: -7684265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bowlhair_attack_strip10_9
+      name: skeleton_death_strip10_9
       rect:
         serializedVersion: 2
         x: 864
@@ -313,8 +313,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db46f15098ebef4ca853d2d87606294
-      internalID: 1309631940
+      spriteID: 0587e5beb26b6aa4ab198cffe5ccc79c
+      internalID: 390080991
       vertices: []
       indices: 
       edges: []
@@ -330,16 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bowlhair_attack_strip10_0: 728118401
-      bowlhair_attack_strip10_1: 814584103
-      bowlhair_attack_strip10_2: 1488845926
-      bowlhair_attack_strip10_3: -153121706
-      bowlhair_attack_strip10_4: 86892393
-      bowlhair_attack_strip10_5: -390908206
-      bowlhair_attack_strip10_6: 2052429438
-      bowlhair_attack_strip10_7: -353983554
-      bowlhair_attack_strip10_8: -1716049359
-      bowlhair_attack_strip10_9: 1309631940
+      skeleton_death_strip10_0: 1167605280
+      skeleton_death_strip10_1: 1915756965
+      skeleton_death_strip10_2: -621249760
+      skeleton_death_strip10_3: -336958785
+      skeleton_death_strip10_4: -1288640691
+      skeleton_death_strip10_5: 1676546756
+      skeleton_death_strip10_6: -1768242155
+      skeleton_death_strip10_7: 1032802244
+      skeleton_death_strip10_8: -7684265
+      skeleton_death_strip10_9: 390080991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

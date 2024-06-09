@@ -7,9 +7,10 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject characterPrefab; // Reference to your prefab
 
-    private CharacterView _view;
-    private CharacterModel _model;
-    private Controller _controller;
+    private CharacterView view;
+    private CharacterModel model;
+    private CharacterController controller;
+    private GameObject CharacterInstance;
 
     private void Awake()
     {
@@ -31,21 +32,20 @@ public class PlayerManager : MonoBehaviour
         {   
 
 
-            var gameObject = Instantiate(characterPrefab);
-            var CharacterTransform = gameObject.transform;
+            CharacterInstance = Instantiate(characterPrefab);
+            var CharacterTransform = CharacterInstance.transform;
 
-            var view = gameObject.GetComponent<CharacterView>();
+            view = CharacterInstance.GetComponent<CharacterView>();
 
             // view.ActivateGameObject();
             if (view != null)
             {   
                 view.Initialize();
                 view.characterTransform = CharacterTransform;
-                var model = new CharacterModel();
+                model = new CharacterModel();
                 // model.ReadData(); // This function will be implemented in the future.
-                var controller = new Controller();
+                controller = new CharacterController();
                 controller.SetData(model, view);
-                _controller = controller;
             }
             else
             {
@@ -74,6 +74,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Handle()
     {
-        _controller?.Handle();
+        controller?.Handle();
     }
+
+    public GameObject getCharacterInstance() { return CharacterInstance; }
 }
