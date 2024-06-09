@@ -5,12 +5,12 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance { get; private set; }
 
     [SerializeField]
-    private GameObject characterPrefab; // Reference to your prefab
+    private GameObject _characterPrefab; // Reference to your prefab
 
-    private CharacterView view;
-    private CharacterModel model;
-    private CharacterController controller;
-    private GameObject CharacterInstance;
+    private CharacterView _view;
+    private CharacterModel _model;
+    private CharacterController _controller;
+    private GameObject _characterInstance;
 
     private void Awake()
     {
@@ -28,24 +28,24 @@ public class PlayerManager : MonoBehaviour
 
     public void Initialize()
     {
-        if (characterPrefab != null)
+        if (_characterPrefab != null)
         {   
 
 
-            CharacterInstance = Instantiate(characterPrefab);
-            var CharacterTransform = CharacterInstance.transform;
+            _characterInstance = Instantiate(_characterPrefab);
+            var CharacterTransform = _characterInstance.transform;
 
-            view = CharacterInstance.GetComponent<CharacterView>();
+            _view = _characterInstance.GetComponent<CharacterView>();
 
             // view.ActivateGameObject();
-            if (view != null)
+            if (_view != null)
             {   
-                view.Initialize();
-                view.characterTransform = CharacterTransform;
-                model = new CharacterModel();
+                _view.Initialize();
+                _view.CharacterTransform = CharacterTransform;
+                _model = new CharacterModel();
                 // model.ReadData(); // This function will be implemented in the future.
-                controller = new CharacterController();
-                controller.SetData(model, view);
+                _controller = new CharacterController();
+                _controller.SetData(_model, _view);
             }
             else
             {
@@ -56,7 +56,7 @@ public class PlayerManager : MonoBehaviour
             CameraFollow cameraFollow = FindObjectOfType<CameraFollow>();
             if (cameraFollow != null)
             {
-                cameraFollow.target = CharacterTransform;
+                cameraFollow.Target = CharacterTransform;
             }
             else
             {
@@ -74,8 +74,8 @@ public class PlayerManager : MonoBehaviour
 
     public void Handle()
     {
-        controller?.Handle();
+        _controller?.Handle();
     }
 
-    public GameObject getCharacterInstance() { return CharacterInstance; }
+    public GameObject getCharacterInstance() { return _characterInstance; }
 }

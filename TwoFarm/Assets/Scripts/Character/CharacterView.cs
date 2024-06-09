@@ -5,42 +5,42 @@ using UnityEngine;
 
 public class CharacterView : MonoBehaviour
 {
-    public Animator characterAnimator;
-    public Animator hairAnimator;
-    public Animator toolAnimator;
-    public Transform characterTransform { get; set; } // Reference to the character's transform for flipping
+    public Animator CharacterAnimator;
+    public Animator HairAnimator;
+    public Animator ToolAnimator;
+    public Transform CharacterTransform { get; set; } // Reference to the character's transform for flipping
 
     public void Initialize()
     {
-        if (characterAnimator == null)
-            characterAnimator = this.gameObject.GetComponent<Animator>();
+        if (CharacterAnimator == null)
+            CharacterAnimator = this.gameObject.GetComponent<Animator>();
         // Initialize all animators
-        if (hairAnimator == null || toolAnimator == null)
+        if (HairAnimator == null || ToolAnimator == null)
         {
             foreach (Transform child in transform)
             {
                 if (child.name == "CharacterHair")
                 {
-                    hairAnimator = child.GetComponent<Animator>();
+                    HairAnimator = child.GetComponent<Animator>();
                 }
                 else if (child.name == "CharacterTool")
                 {
-                    toolAnimator = child.GetComponent<Animator>();
+                    ToolAnimator = child.GetComponent<Animator>();
                 }
             }
         }
     }
     public void PlayAnimation(AnimationType animation)
     {
-        characterAnimator.Play(animation + "");
-        hairAnimator.Play(animation + "_Hair");
-        toolAnimator.Play(animation + "_Tool");
+        CharacterAnimator.Play(animation + "");
+        HairAnimator.Play(animation + "_Hair");
+        ToolAnimator.Play(animation + "_Tool");
     }
     public void FlipCharacter(bool facingRight)
     {
-        Vector3 scale = characterTransform.localScale;
+        Vector3 scale = CharacterTransform.localScale;
         scale.x = facingRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-        characterTransform.localScale = scale;
+        CharacterTransform.localScale = scale;
     }
     public void SetPosition(Vector2 modelMoveSpeed)
     {

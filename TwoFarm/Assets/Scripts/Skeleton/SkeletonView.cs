@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class SkeletonView : MonoBehaviour
 {
-    public Animator skeletonAnimator;
-    public Transform skeletonTransform { get; set; }
+    public Animator SkeletonAnimator;
+    public Transform SkeletonTransform { get; set; }
 
     public void Initialize()
     {
-        skeletonAnimator = this.gameObject.GetComponent<Animator>();
+        SkeletonAnimator = this.gameObject.GetComponent<Animator>();
     }
 
     public void PlayAnimation(SkeletonAnimationType animation)
     {
-        skeletonAnimator.Play(animation.ToString());
+        SkeletonAnimator.Play(animation.ToString());
     }
 
     public void FlipSkeleton(bool facingRight)
     {
-        Vector3 scale = skeletonTransform.localScale;
+        Vector3 scale = SkeletonTransform.localScale;
         scale.x = facingRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
-        skeletonTransform.localScale = scale;
+        SkeletonTransform.localScale = scale;
     }
 
     public void SetPosition(Vector2 modelMoveSpeed)

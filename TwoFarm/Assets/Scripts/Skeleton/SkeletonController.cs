@@ -5,28 +5,28 @@ using UnityEngine;
 
 public class SkeletonController
 {
-    private SkeletonModel model;
-    private SkeletonView view;
-    private Transform playerTransform;
-    private bool facingRight = true;
+    private SkeletonModel _model;
+    private SkeletonView _view;
+    private Transform _playerTransform;
+    private bool _facingRight = true;
 
     public void SetData(SkeletonModel model, SkeletonView view, Transform playerTransform)
     {
-        this.model = model;
-        this.view = view;
-        this.playerTransform = playerTransform;
+        this._model = model;
+        this._view = view;
+        this._playerTransform = playerTransform;
     }
 
     public void Handle()
     {
-        float distanceToPlayer = Vector2.Distance(view.transform.position, playerTransform.position);
+        float distanceToPlayer = Vector2.Distance(_view.transform.position, _playerTransform.position);
 
-        if (distanceToPlayer <= model.DetectionRadius)
+        if (distanceToPlayer <= _model.DetectionRadius)
         {
-            Vector2 directionToPlayer = (playerTransform.position - view.transform.position).normalized;
-            model.MovementDirection = directionToPlayer;
+            Vector2 directionToPlayer = (_playerTransform.position - _view.transform.position).normalized;
+            _model.MovementDirection = directionToPlayer;
 
-            if (distanceToPlayer > 1.0f && model.Status != SkeletonAnimationType.Attack) // If not close enough to attack, move towards player
+            if (distanceToPlayer > 1.0f && _model.Status != SkeletonAnimationType.Attack) // If not close enough to attack, move towards player
             {
                 MoveTowardsPlayer();
             }
@@ -37,8 +37,8 @@ public class SkeletonController
         }
         else
         {
-            model.MovementDirection = Vector2.zero;
-            view.PlayAnimation(SkeletonAnimationType.Idle);
+            _model.MovementDirection = Vector2.zero;
+            _view.PlayAnimation(SkeletonAnimationType.Idle);
         }
 
         HandleMovementAndAnimation();
@@ -49,27 +49,27 @@ public class SkeletonController
 
 
 
-        if (model.Status != SkeletonAnimationType.Walk)
+        if (_model.Status != SkeletonAnimationType.Walk)
         {
-            model.Status = SkeletonAnimationType.Walk;
+            _model.Status = SkeletonAnimationType.Walk;
         }
-        view.PlayAnimation(SkeletonAnimationType.Walk);
+        _view.PlayAnimation(SkeletonAnimationType.Walk);
 
-        view.SetPosition(model.MovementDirection * model.MoveSpeed * Time.deltaTime);
+        _view.SetPosition(_model.MovementDirection * _model.MoveSpeed * Time.deltaTime);
 
-        if ((model.MovementDirection.x > 0 && !facingRight) || (model.MovementDirection.x < 0 && facingRight))
+        if ((_model.MovementDirection.x > 0 && !_facingRight) || (_model.MovementDirection.x < 0 && _facingRight))
         {
-            facingRight = !facingRight;
-            view.FlipSkeleton(facingRight);
+            _facingRight = !_facingRight;
+            _view.FlipSkeleton(_facingRight);
         }
     }
 
     private void AttackPlayer()
     {
-        if (model.Status != SkeletonAnimationType.Attack)
+        if (_model.Status != SkeletonAnimationType.Attack)
         {
-            model.Status = SkeletonAnimationType.Attack;
-            view.PlayAnimation(SkeletonAnimationType.Attack);
+            _model.Status = SkeletonAnimationType.Attack;
+            _view.PlayAnimation(SkeletonAnimationType.Attack);
             Timing.RunCoroutine(AttackCooldown());
         }
     }
@@ -84,6 +84,6 @@ public class SkeletonController
     private IEnumerator<float> AttackCooldown()
     {
         yield return Timing.WaitForSeconds(0.5f); // Adjust based on your attack animation length
-        model.Status = SkeletonAnimationType.Walk;
+        _model.Status = SkeletonAnimationType.Walk;
     }
 }

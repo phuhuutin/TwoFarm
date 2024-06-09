@@ -5,15 +5,15 @@ using MEC;
 
 public class CharacterController
 {
-    private CharacterModel model;
-    private CharacterView view;
-    private bool facingRight = true;
+    private CharacterModel _model;
+    private CharacterView _view;
+    private bool _facingRight = true;
 
     public void SetData(CharacterModel model, CharacterView view)
     {
         // Initialize Data Model, View
-        this.model = model;
-        this.view = view;
+        this._model = model;
+        this._view = view;
     }
     
     public void Handle()
@@ -21,8 +21,8 @@ public class CharacterController
         // Handle running input
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            model.status = model.status == AnimationType.Run ? AnimationType.Walk : AnimationType.Run;
-            model.SetSpeed();
+            _model.status = _model.status == AnimationType.Run ? AnimationType.Walk : AnimationType.Run;
+            _model.SetSpeed();
         }
 
 
@@ -31,45 +31,45 @@ public class CharacterController
         float moveY = Input.GetAxisRaw("Vertical");   // ASDW and arrow keys
 
         Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
-        model.MovementDirection = moveDirection;
+        _model.MovementDirection = moveDirection;
         
         // Handle character facing direction
-        if (moveX > 0 && !facingRight)
+        if (moveX > 0 && !_facingRight)
         {
-            facingRight = true;
-            view.FlipCharacter(facingRight);
+            _facingRight = true;
+            _view.FlipCharacter(_facingRight);
         }
-        else if (moveX < 0 && facingRight)
+        else if (moveX < 0 && _facingRight)
         {
-            facingRight = false;
-            view.FlipCharacter(facingRight);
+            _facingRight = false;
+            _view.FlipCharacter(_facingRight);
         }
 
         // Handle roll skill
-        if (Input.GetKeyDown(KeyCode.Space) && model.status != AnimationType.Roll && model.status != AnimationType.Fight)
+        if (Input.GetKeyDown(KeyCode.Space) && _model.status != AnimationType.Roll && _model.status != AnimationType.Fight)
         {
-            var tempStatus = model.status;
-            model.status = AnimationType.Roll;
-            view.PlayAnimation(AnimationType.Roll);
+            var tempStatus = _model.status;
+            _model.status = AnimationType.Roll;
+            _view.PlayAnimation(AnimationType.Roll);
             Timing.RunCoroutine(RollCooldown(tempStatus == AnimationType.Run));
         }
 
         // Handle fight animation
-        if (Input.GetMouseButtonDown(0) && model.status != AnimationType.Fight && model.status != AnimationType.Roll)
+        if (Input.GetMouseButtonDown(0) && _model.status != AnimationType.Fight && _model.status != AnimationType.Roll)
         {
-            var tempStatus = model.status;
+            var tempStatus = _model.status;
 
-            model.status = AnimationType.Fight;
-            view.PlayAnimation(AnimationType.Fight);
+            _model.status = AnimationType.Fight;
+            _view.PlayAnimation(AnimationType.Fight);
             Timing.RunCoroutine(FightCooldown(tempStatus == AnimationType.Run));
         }
 
         // Handle character movement and animations based on status
-        switch (model.status)
+        switch (_model.status)
         {
             case AnimationType.Roll:
                 // Move the character with roll speed
-                view.SetPosition(moveDirection * model.RollSpeed * Time.deltaTime);
+                _view.SetPosition(moveDirection * _model.RollSpeed * Time.deltaTime);
                 break;
 
             case AnimationType.Fight:
@@ -78,14 +78,14 @@ public class CharacterController
 
             default:
                 // Move the character normally
-                view.SetPosition(moveDirection * model.MoveSpeed * Time.deltaTime);
+                _view.SetPosition(moveDirection * _model.MoveSpeed * Time.deltaTime);
                 if (moveDirection != Vector2.zero)
                 {
-                    view.PlayAnimation(model.status == AnimationType.Run ? AnimationType.Run : AnimationType.Walk);
+                    _view.PlayAnimation(_model.status == AnimationType.Run ? AnimationType.Run : AnimationType.Walk);
                 }
                 else
                 {
-                    view.PlayAnimation(AnimationType.Idle);
+                    _view.PlayAnimation(AnimationType.Idle);
                 }
                 break;
         }
@@ -98,14 +98,14 @@ public class CharacterController
         // Duration of the roll animation
         yield return  Timing.WaitForSeconds(0.5f); // Adjust based on your animation length
         
-        model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
+        _model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
     }
 
     private IEnumerator<float> FightCooldown(bool isRunning)
     {
         // Duration of the fight animation
         yield return Timing.WaitForSeconds(0.5f); // Adjust based on your animation length
-        model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
+        _model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
     }
 
 }

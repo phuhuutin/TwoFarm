@@ -7,9 +7,9 @@ public class SkeletonManager : MonoBehaviour
     public static SkeletonManager Instance { get; private set; }
 
     [SerializeField]
-    private GameObject skeletonPrefab; // Reference to your skeleton prefab
+    private GameObject _skeletonPrefab; // Reference to your skeleton prefab
 
-    private List<SkeletonController> skeletonControllers = new List<SkeletonController>();
+    private List<SkeletonController> _skeletonControllers = new List<SkeletonController>();
 
     private void Awake()
     {
@@ -27,11 +27,11 @@ public class SkeletonManager : MonoBehaviour
 
     public void Initialize(List<Vector3> spawnPositions)
     {
-        if (skeletonPrefab != null)
+        if (_skeletonPrefab != null)
         {
             for (int i = 0; i < spawnPositions.Count; i++)
             {
-                var gameObject = Instantiate(skeletonPrefab, spawnPositions[i], Quaternion.identity);
+                var gameObject = Instantiate(_skeletonPrefab, spawnPositions[i], Quaternion.identity);
                 var skeletonTransform = gameObject.transform;
 
                 var view = gameObject.GetComponent<SkeletonView>();
@@ -39,7 +39,7 @@ public class SkeletonManager : MonoBehaviour
                 if (view != null)
                 {
                     view.Initialize();
-                    view.skeletonTransform = skeletonTransform;
+                    view.SkeletonTransform = skeletonTransform;
 
                     var model = new SkeletonModel();
                     var controller = new SkeletonController();
@@ -47,7 +47,7 @@ public class SkeletonManager : MonoBehaviour
 
                     controller.SetData(model, view, characterTransform.transform);
 
-                    skeletonControllers.Add(controller);
+                    _skeletonControllers.Add(controller);
                 }
                 else
                 {
@@ -63,7 +63,7 @@ public class SkeletonManager : MonoBehaviour
 
     public void Handle()
     {
-        foreach (var controller in skeletonControllers)
+        foreach (var controller in _skeletonControllers)
         {
             controller.Handle();
         }
