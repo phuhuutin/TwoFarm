@@ -17,7 +17,10 @@ public class CharacterController
     }
     
     public void Handle()
-    {
+    {   
+        //wake RB2D up
+        _view.GetRigidbody2D().WakeUp();
+
         // Handle running input
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
@@ -91,7 +94,9 @@ public class CharacterController
         }
     }
 
-  
+    public CharacterModel getModel(){
+        return this._model;
+    }
 
     private IEnumerator<float> RollCooldown(bool isRunning)
     {
@@ -106,6 +111,19 @@ public class CharacterController
         // Duration of the fight animation
         yield return Timing.WaitForSeconds(0.5f); // Adjust based on your animation length
         _model.status = isRunning ? AnimationType.Run : AnimationType.Walk; // Return to idle status after fighting
+    }
+
+    public void OnSkeletonCollision(SkeletonView skeletonView)
+    {
+        // Get the skeleton's controller to deal damage
+        if (Time.time - _model.lastHitTime >= 0.5f) {
+                             
+
+            var skeletonController = skeletonView.GetController();
+            skeletonController.TakeHit(1); // Character deals 10 damage to skeleton
+            _model.lastHitTime = Time.time;
+        }
+ 
     }
 
 }

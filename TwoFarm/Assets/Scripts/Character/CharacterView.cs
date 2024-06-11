@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CharacterView : MonoBehaviour
@@ -10,8 +8,15 @@ public class CharacterView : MonoBehaviour
     public Animator ToolAnimator;
     public Transform CharacterTransform { get; set; } // Reference to the character's transform for flipping
 
-    public void Initialize()
-    {
+    private CharacterController _controller;
+    private Rigidbody2D rb2d;
+
+    public void Initialize( CharacterController  controller)
+    {   
+        rb2d = GetComponent<Rigidbody2D>();
+
+        _controller = controller;
+
         if (CharacterAnimator == null)
             CharacterAnimator = this.gameObject.GetComponent<Animator>();
         // Initialize all animators
@@ -52,9 +57,24 @@ public class CharacterView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other == null) return;
-        Debug.Log("HIT");
+        if (other.CompareTag("Skeleton") && _controller.getModel().status == AnimationType.Fight) 
+        {
+            var skeletonView = other.GetComponent<SkeletonView>();
+            if (skeletonView != null)
+            {
+                _controller.OnSkeletonCollision(skeletonView);
+            }
+        }
+
+    
+    }
+
+
+    public Rigidbody2D GetRigidbody2D()
+    {
+        return rb2d;
     }
 }

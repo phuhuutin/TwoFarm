@@ -5,6 +5,10 @@ public class SkeletonModel
     public float MoveSpeed { get; set; } = 3.0f;
     public float JumpSpeed { get; set; } = 5.0f;
 
+    public float HitPoints;
+
+    public float MaxHitPoints = 10;
+
     public SkeletonAnimationType Status { get; set; } = SkeletonAnimationType.Idle;
 
     public Vector2 MovementDirection { get; set; } = Vector2.zero;

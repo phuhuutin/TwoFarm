@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         List<Vector3> spawnPositions = new List<Vector3>
         {
             new Vector3(5, 0, 0),
-            new Vector3(5, 5, 0),
+            new Vector3(5, 6, 0)
         };
 
         SkeletonManager.Instance.Initialize(spawnPositions); // Initialize skeletons at specified positions

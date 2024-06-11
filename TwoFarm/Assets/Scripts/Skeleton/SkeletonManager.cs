@@ -41,12 +41,13 @@ public class SkeletonManager : MonoBehaviour
                 var view = gameObject.GetComponent<SkeletonView>();
 
                 if (view != null)
-                {
-                    view.Initialize();
-                    view.SkeletonTransform = skeletonTransform;
-
+                {   
                     var model = new SkeletonModel();
                     var controller = new SkeletonController();
+                    view.Initialize(controller);
+                    view.SkeletonTransform = skeletonTransform;
+
+    
                     var characterTransform = PlayerManager.Instance.getCharacterInstance();
 
                     controller.SetData(model, view, characterTransform.transform);

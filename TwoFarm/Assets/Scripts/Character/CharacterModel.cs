@@ -20,4 +20,6 @@ public class CharacterModel
         MoveSpeed = status == AnimationType.Run ? 7.0f : 5.0f; 
     }
 
+    public float lastHitTime = -1f;
+
 }

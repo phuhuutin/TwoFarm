@@ -40,11 +40,12 @@ public class PlayerManager : MonoBehaviour
             // view.ActivateGameObject();
             if (_view != null)
             {   
-                _view.Initialize();
+                _controller = new CharacterController();
+
+                _view.Initialize(_controller);
                 _view.CharacterTransform = CharacterTransform;
                 _model = new CharacterModel();
                 // model.ReadData(); // This function will be implemented in the future.
-                _controller = new CharacterController();
                 _controller.SetData(_model, _view);
             }
             else

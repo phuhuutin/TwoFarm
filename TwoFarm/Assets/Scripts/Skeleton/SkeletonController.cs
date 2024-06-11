@@ -11,11 +11,26 @@ public class SkeletonController
     private Transform _playerTransform;
     private bool _facingRight = true;
 
+
     public void SetData(SkeletonModel model, SkeletonView view, Transform playerTransform)
     {
         this._model = model;
         this._view = view;
         this._playerTransform = playerTransform;
+        _model.HitPoints = _model.MaxHitPoints;
+        _view.healthBar.UpdateHealthBar(_model.HitPoints, _model.MaxHitPoints);
+      //  _view._healthBar.SetHealth(_model.HitPoints, _model.MaxHitPoints);
+
+    }
+
+    public void TakeHit(float damage ){
+        Debug.Log("HIT Skeleton");
+        _model.HitPoints -= damage;
+        _view.healthBar.UpdateHealthBar(_model.HitPoints, _model.MaxHitPoints);
+      //  _view._healthBar.SetHealth(_model.HitPoints, _model.MaxHitPoints);
+        if(_model.HitPoints <= 0){
+            Debug.Log("Skeleton Died!!");
+        }
     }
 
     public void Handle()

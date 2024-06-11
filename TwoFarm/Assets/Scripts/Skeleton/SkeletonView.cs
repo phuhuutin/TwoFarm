@@ -8,11 +8,27 @@ public class SkeletonView : MonoBehaviour
     public Animator SkeletonAnimator;
     public Transform SkeletonTransform { get; set; }
 
+ //   public HealthBarBehavior _healthBar; 
+
+    private SkeletonController _controller;
+
+    [SerializeField]
+    public FloatingHealthBar healthBar;
+
+
      public Boolean isDebug; 
 
-    public void Initialize()
+    public void Initialize(SkeletonController controller)
     {
         SkeletonAnimator = this.gameObject.GetComponent<Animator>();
+        _controller = controller;
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+
+    }
+
+    public SkeletonController GetController()
+    {
+        return _controller;
     }
 
     public void PlayAnimation(SkeletonAnimationType animation)
@@ -37,11 +53,11 @@ public class SkeletonView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other == null) return;
-        Debug.Log("HIT From Skeleton");
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other == null) return;
+    //     Debug.Log("HIT From Skeleton");
+    // }
 
 
 }
