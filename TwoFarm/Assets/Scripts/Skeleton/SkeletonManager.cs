@@ -68,9 +68,27 @@ public class SkeletonManager : MonoBehaviour
 
     public void Handle()
     {
-        foreach (var controller in _skeletonControllers)
+        for (int i = _skeletonControllers.Count - 1; i >= 0; i--)
         {
-            controller.Handle();
+            var controller = _skeletonControllers[i];
+            if (!controller.GetModel().showOnScreen)
+            {
+                _skeletonControllers.RemoveAt(i);
+                Debug.Log("remove from list");
+            }else{
+
+                controller.Handle();
+
+            }
+
+
+
+
+
+
+
+
+        
         }
     }
 

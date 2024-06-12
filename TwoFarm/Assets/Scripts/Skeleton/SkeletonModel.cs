@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SkeletonModel
@@ -6,6 +7,8 @@ public class SkeletonModel
     public float JumpSpeed { get; set; } = 5.0f;
 
     public float HitPoints;
+
+    public Boolean showOnScreen = true;
 
     public float MaxHitPoints = 10;
 

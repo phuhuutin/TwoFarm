@@ -53,6 +53,14 @@ public class SkeletonView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    
+    public void DestroyMeDaddy(){
+        Debug.Log("remove from list of GameObject in UNity");
+        Destroy(gameObject);
+    }
+
+
+
     // private void OnTriggerEnter2D(Collider2D other)
     // {
     //     if (other == null) return;

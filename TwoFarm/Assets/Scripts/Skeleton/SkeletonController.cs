@@ -1,6 +1,7 @@
 using MEC;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,12 +25,14 @@ public class SkeletonController
     }
 
     public void TakeHit(float damage ){
-        Debug.Log("HIT Skeleton");
         _model.HitPoints -= damage;
         _view.healthBar.UpdateHealthBar(_model.HitPoints, _model.MaxHitPoints);
       //  _view._healthBar.SetHealth(_model.HitPoints, _model.MaxHitPoints);
         if(_model.HitPoints <= 0){
+            _model.showOnScreen = false;
+            _view.DestroyMeDaddy();
             Debug.Log("Skeleton Died!!");
+            
         }
     }
 
@@ -117,4 +120,8 @@ public class SkeletonController
         }
 
     }
+    public SkeletonModel GetModel(){
+        return this._model;
+    }
+
 }
