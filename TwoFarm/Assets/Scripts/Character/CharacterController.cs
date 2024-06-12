@@ -9,6 +9,9 @@ public class CharacterController
     private CharacterView _view;
     private bool _facingRight = true;
 
+    private bool _isDelaying = false;
+
+
     public void SetData(CharacterModel model, CharacterView view)
     {
         // Initialize Data Model, View
@@ -24,7 +27,7 @@ public class CharacterController
         // Handle running input
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            _model.status = _model.status == AnimationType.Run ? AnimationType.Walk : AnimationType.Run;
+            _model.status = _model.notInRunStatus() ? AnimationType.Walk : AnimationType.Run;
             _model.SetSpeed();
         }
 
@@ -37,19 +40,19 @@ public class CharacterController
         _model.MovementDirection = moveDirection;
         
         // Handle character facing direction
-        if (moveX > 0 && !_facingRight)
+        if (moveX > 0 && !_facingRight && _model.notInFightStatus())
         {
             _facingRight = true;
             _view.FlipCharacter(_facingRight);
         }
-        else if (moveX < 0 && _facingRight)
+        else if (moveX < 0 && _facingRight && _model.notInFightStatus())
         {
             _facingRight = false;
             _view.FlipCharacter(_facingRight);
         }
 
         // Handle roll skill
-        if (Input.GetKeyDown(KeyCode.Space) && _model.status != AnimationType.Roll && _model.status != AnimationType.Fight)
+        if (Input.GetKeyDown(KeyCode.Space) && _model.notInRolltStatus() && _model.notInFightStatus())
         {
             var tempStatus = _model.status;
             _model.status = AnimationType.Roll;
@@ -116,14 +119,41 @@ public class CharacterController
     public void OnSkeletonCollision(SkeletonView skeletonView)
     {
         // Get the skeleton's controller to deal damage
-        if (Time.time - _model.lastHitTime >= 0.5f) {
+        // if (Time.time - _model.lastHitTime >= 0.5f) {
                              
 
-            var skeletonController = skeletonView.GetController();
-            skeletonController.TakeHit(1); // Character deals 10 damage to skeleton
-            _model.lastHitTime = Time.time;
+        //     var skeletonController = skeletonView.GetController();
+        //     //DELAY 0.3
+        //     skeletonController.TakeHit(4); // Character deals 10 damage to skeleton
+        //     _model.lastHitTime = Time.time;
+        // }
+        if (!_isDelaying)
+        {
+            // Start the delay coroutine
+            _view.StartCoroutine(ApplyDamageWithDelay(skeletonView));
         }
  
+    }
+
+
+    private IEnumerator ApplyDamageWithDelay(SkeletonView skeletonView)
+    {
+        // Set delaying flag to prevent overlapping delays
+        _isDelaying = true;
+
+        // Wait for 0.3 seconds
+        yield return new WaitForSeconds(0.25f);
+
+        // Get the skeleton's controller to deal damage
+        if (Time.time - _model.lastHitTime >= 0.5f)
+        {
+            var skeletonController = skeletonView.GetController();
+            skeletonController.TakeHit(4); // Character deals 10 damage to skeleton
+            _model.lastHitTime = Time.time;
+        }
+
+        // Reset delaying flag
+        _isDelaying = false;
     }
 
 }

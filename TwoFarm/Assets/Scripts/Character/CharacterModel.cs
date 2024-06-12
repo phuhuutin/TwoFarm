@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,21 @@ public class CharacterModel
         MoveSpeed = status == AnimationType.Run ? 7.0f : 5.0f; 
     }
 
+    
+
     public float lastHitTime = -1f;
+
+    public Boolean notInFightStatus(){
+        return this.status != AnimationType.Fight;
+    }
+
+    public Boolean notInRolltStatus(){
+        return this.status != AnimationType.Roll;
+    }
+
+    public Boolean notInRunStatus(){
+        return this.status != AnimationType.Run;
+    }
+
 
 }
