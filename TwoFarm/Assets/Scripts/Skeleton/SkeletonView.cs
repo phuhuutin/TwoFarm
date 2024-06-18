@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 
-public class SkeletonView : MonoBehaviour
+public class SkeletonView : MonoBehaviour, IView
 {
     public Animator SkeletonAnimator;
     public Transform SkeletonTransform { get; set; }
 
- //   public HealthBarBehavior _healthBar; 
+    //   public HealthBarBehavior _healthBar; 
 
     private SkeletonController _controller;
 
@@ -16,7 +17,7 @@ public class SkeletonView : MonoBehaviour
     public FloatingHealthBar healthBar;
 
 
-     public Boolean isDebug; 
+    public Boolean isDebug;
 
     public void Initialize(SkeletonController controller)
     {
@@ -31,12 +32,12 @@ public class SkeletonView : MonoBehaviour
         return _controller;
     }
 
-    public void PlayAnimation(SkeletonAnimationType animation)
+    public void PlayAnimation(AnimationType animation)
     {
         SkeletonAnimator.Play(animation.ToString());
     }
 
-    public void FlipSkeleton(bool facingRight)
+    public void FlipTransform(bool facingRight)
     {
         Vector3 scale = SkeletonTransform.localScale;
         scale.x = facingRight ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
@@ -53,19 +54,38 @@ public class SkeletonView : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    
-    public void DestroyMeDaddy(){
+
+    public void DestroyMeDaddy()
+    {
         Debug.Log("remove from list of GameObject in UNity");
         Destroy(gameObject);
     }
 
+    public void PlayDeathAnimationAndDestroy(float delay)
+    {
+        StartCoroutine(PlayDeathAnimation(delay));
+    }
+
+    private IEnumerator PlayDeathAnimation(float delay)
+    {
+        // Assuming the death animation is triggered by setting a parameter in the Animator
+        PlayAnimation(AnimationType.Death);
+
+        yield return new WaitForSeconds(delay);
+
+        Destroy(gameObject);
+    }
 
 
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other == null) return;
-    //     Debug.Log("HIT From Skeleton");
-    // }
+    public Transform GetTransform()
+    {
+        return SkeletonTransform;
+    }
+
+    void IView.Initialize()
+    {
+        throw new NotImplementedException();
+    }
 
 
 }

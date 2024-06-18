@@ -1,14 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class CharacterModel
+using CustomColliders;
+using Assets.Scripts.Interfaces;
+public class CharacterModel : IModel
 {
     public float MoveSpeed { get; set; } = 5.0f;
     public float RollSpeed { get; set; } = 10.0f;
 
-    public AnimationType status { get; set; } = AnimationType.Idle;
+    public AnimationType Status { get; set; } = AnimationType.Idle;
+
+    public AnimationType CurrentTool { get; set; } = AnimationType.Attack;
+
 
 
     public bool IsRunning { get; set; } = false;
@@ -16,26 +18,36 @@ public class CharacterModel
 
     public bool IsRolling { get; set; } = false;
 
-    public void SetSpeed()
-    {
-        MoveSpeed = status == AnimationType.Run ? 7.0f : 5.0f; 
-    }
+    public BoundingBox BodyBox { get; set; }
 
-    
+
+    public BoundingBox AttackBox;
+
+    public Vector2 size;
+
 
     public float lastHitTime = -1f;
 
-    public Boolean notInFightStatus(){
-        return this.status != AnimationType.Fight;
+    public Boolean notInFightStatus()
+    {
+        return this.Status != AnimationType.Attack;
     }
 
-    public Boolean notInRolltStatus(){
-        return this.status != AnimationType.Roll;
+    public Boolean notInRolltStatus()
+    {
+        return this.Status != AnimationType.Roll;
     }
 
-    public Boolean notInRunStatus(){
-        return this.status != AnimationType.Run;
+    public Boolean notInRunStatus()
+    {
+        return this.Status != AnimationType.Run;
     }
+
+    public void SetSpeed()
+    {
+        MoveSpeed = Status == AnimationType.Run ? 7.0f : 5.0f;
+    }
+
 
 
 }

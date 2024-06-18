@@ -1,3 +1,4 @@
+using Assets.Scripts.Character;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -7,9 +8,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     private GameObject _characterPrefab; // Reference to your prefab
 
-    private CharacterView _view;
-    private CharacterModel _model;
-    private CharacterController _controller;
+    public CharacterView _view;
+    public CharacterModel _model;
+    public CharacterController _controller;
     private GameObject _characterInstance;
 
     private void Awake()
@@ -42,7 +43,7 @@ public class PlayerManager : MonoBehaviour
             {   
                 _controller = new CharacterController();
 
-                _view.Initialize(_controller);
+                _view.Initialize();
                 _view.CharacterTransform = CharacterTransform;
                 _model = new CharacterModel();
                 // model.ReadData(); // This function will be implemented in the future.

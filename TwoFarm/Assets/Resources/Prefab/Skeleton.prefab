@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7551505212223139014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.58, y: -1.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -177,6 +177,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9155285141148890861}
     m_Modifications:
+    - target: {fileID: 2015278019369523852, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80.459
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015278019369523852, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 15.274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015278019369523852, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.026
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528647990297441043, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351429223361846065, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351429223361846065, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487838567032743594, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487838567032743594, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6716806616361223114, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -188,6 +220,14 @@ PrefabInstance:
     - target: {fileID: 6761182966263117932, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761182966263117932, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6761182966263117932, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.978
       objectReference: {fileID: 0}
     - target: {fileID: 7672903865712778821, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
       propertyPath: m_Pivot.x
@@ -268,6 +308,10 @@ PrefabInstance:
     - target: {fileID: 7672903865712778821, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691768315636446084, guid: 19c846d6eb001ab408193c44461a4c01, type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
